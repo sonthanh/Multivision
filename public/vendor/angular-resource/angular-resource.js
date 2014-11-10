@@ -334,9 +334,9 @@ function shallowClearAndCopy(src, dst) {
  *        });
  *    }]);
  *
- *    // In our controller we get the ID from the URL using ngRoute and $routeParams
+ *    // In our controllers we get the ID from the URL using ngRoute and $routeParams
  *    // We pass in $routeParams and our Notes factory along with $scope
- *    app.controller('NotesCtrl', ['$scope', '$routeParams', 'Notes',
+ *    app.controllers('NotesCtrl', ['$scope', '$routeParams', 'Notes',
                                       function($scope, $routeParams, Notes) {
  *    // First get a note object from the factory
  *    var note = Notes.get({ id:$routeParams.id });
