@@ -2,4 +2,5 @@
     .panel-heading.text-center New Courses
     .panel-body
         .row(ng-repeat="course in courses | filter:{featured:false}")
-            .col-md-12  {{course.title}}
+            .col-md-12
+                a(href="/courses/{{course._id}}") {{course.title}}

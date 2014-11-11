@@ -10,6 +10,7 @@ module.exports = function(app){
 
 
     app.get('/api/courses', courses.getCourses);
+    app.get('/api/courses/:id', courses.getCourseById);
 
 
 
