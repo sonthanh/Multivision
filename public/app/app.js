@@ -3,6 +3,9 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
     var routeRolechecks = {
         admin: {auth: function (mvAuth) {
             return mvAuth.authorizeCurrentUserForRoute('admin');
+        }},
+        user: {auth: function (mvAuth) {
+            return mvAuth.authorizeAuthenticateUserForRoute();
         }}
     };
 
@@ -10,7 +13,9 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', { templateUrl: '/partials/main/main', controller: 'mvMainCtrl'})
         .when('/admin/users', { templateUrl: '/partials/admin/user-list', controller: 'mvUserListCtrl', resolve:routeRolechecks.admin})
-        .when('/signup', { templateUrl: '/partials/account/signup', controller: 'mvSignupCtrl'});
+        .when('/signup', { templateUrl: '/partials/account/signup', controller: 'mvSignupCtrl'})
+        .when('/profile', { templateUrl: '/partials/account/profile', controller: 'mvProfileCtrl', resolve:routeRolechecks.user})
+        .when('/courses', { templateUrl: '/partials/courses/course-list', controller: 'mvCourseListCtrl'});
 });
 
 angular.module('app').run(function ($rootScope, $location) {

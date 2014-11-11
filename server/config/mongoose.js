@@ -2,9 +2,10 @@
  * Created by tdoson on 29.10.14.
  */
 var mongoose = require('mongoose'),
-    userModel = require('../models/User');
+    userModel = require('../models/User'),
+    courseModel = require('../models/Course');
 
-module.exports = function(config) {
+module.exports = function (config) {
     mongoose.connect(config.db);
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error...'));
@@ -13,5 +14,6 @@ module.exports = function(config) {
     });
 
     userModel.createDefaultUsers();
-}
+    courseModel.createDefaultUsers();
+};
 
